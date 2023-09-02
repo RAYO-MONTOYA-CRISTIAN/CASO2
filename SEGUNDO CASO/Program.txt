@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CASO2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Solicitar al usuario ingresar el tipo de uva (A o B)
+            Console.Write("Ingrese el tipo de uva (A o B): ");
+            char tipoUva = Char.ToUpper(Console.ReadKey().KeyChar);
+
+            // Solicitar al usuario ingresar el tamaño de la uva (1 o 2)
+            Console.Write("\nIngrese el tamaño de la uva (1 o 2): ");
+            int tamanoUva = int.Parse(Console.ReadLine());
+
+            // Solicitar al usuario ingresar el precio inicial por kilo de uva
+            Console.Write("\nIngrese el precio inicial por kilo de uva: ");
+            double precioInicial = double.Parse(Console.ReadLine());
+
+            // Aplicar los ajustes al precio según el tipo y tamaño de uva
+            if (tipoUva == 'A')
+            {
+                if (tamanoUva == 1)
+                {
+                    precioInicial += 0.20;
+                }
+                else if (tamanoUva == 2)
+                {
+                    precioInicial += 0.30;
+                }
+            }
+            else if (tipoUva == 'B')
+            {
+                if (tamanoUva == 1)
+                {
+                    precioInicial -= 0.30;
+                }
+                else if (tamanoUva == 2)
+                {
+                    precioInicial -= 0.50;
+                }
+            }
+
+            // Solicitar al usuario ingresar el peso de la uva en kilogramos
+            Console.Write("\nIngrese el peso de la uva en kilogramos: ");
+            double pesoUva = double.Parse(Console.ReadLine());
+
+            // Calcular la ganancia
+            double ganancia = precioInicial * pesoUva;
+
+            // Mostrar la ganancia obtenida
+            Console.WriteLine("\nLa ganancia obtenida es: $" + ganancia.ToString("0.00"));
+
+            Console.ReadLine();
+        }
+
+
+    }
+}
